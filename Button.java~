@@ -41,7 +41,7 @@ public class Button extends JButton implements ActionListener {
 			}
 			System.out.println("Player "+ s +" won!");
 		}
-		
+		else System.out.println("D R A W");
 	}
 	
 	public void actionPerformed(ActionEvent e) {
