@@ -17,6 +17,7 @@ public class Button extends JButton implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		this.setFont(new Font("Helvetica", Font.BOLD, 40));
 		if(GameFrame.getCurrPlayer() == 0) {
 			this.setText("X");
 		} else {
