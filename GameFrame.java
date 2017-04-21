@@ -7,6 +7,7 @@ public class GameFrame extends JFrame {
 	
 	private static final int ROWS = 3;
 	private static final int COLS = 3;
+	private static int currPlayer = 0;
 	private Container c;
 	
 	public GameFrame() {
@@ -24,7 +25,7 @@ public class GameFrame extends JFrame {
 		
 		for(int i = 0; i<ROWS; i++) {
 			for(int j = 0; j<COLS; j++) {
-				JButton lob = new JButton();
+				Button lob = new Button();
 				c.add(lob);
 			}
 		}
@@ -33,4 +34,14 @@ public class GameFrame extends JFrame {
 		this.setVisible(true);
 	}
 	
+	public static int getCurrPlayer() {
+		return currPlayer;
+	}
+
+	public static void setCurrPlayer() {
+		if(currPlayer == 1) currPlayer = 0;
+		else {
+			currPlayer = 1;
+		}
+	}
 }
