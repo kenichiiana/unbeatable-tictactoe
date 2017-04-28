@@ -12,6 +12,7 @@ public class GameFrame extends JFrame {
 	private static int[][] status = new int[ROWS][COLS];
 	private Container c;
 	private static int count = 2;
+	public static int moves_left=9;
 	
 	public GameFrame() {
 		super("Tic Tac Grace Poe");
@@ -35,8 +36,7 @@ public class GameFrame extends JFrame {
 		
 		for(int i = 0; i<ROWS; i++) {
 			for(int j = 0; j<COLS; j++) {
-				status[i][j] = count;
-				count++;
+				status[i][j] = 99;
 			}
 		}
 		
