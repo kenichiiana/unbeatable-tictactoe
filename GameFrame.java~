@@ -10,8 +10,9 @@ public class GameFrame extends JFrame {
 	private static int currPlayer = -1;
 	private static int prevPlayer = -1;
 	private static int[][] status = new int[ROWS][COLS];
-	private Container c;
+	public static Container c;
 	private static int count = 2;
+	public static int moves_left=9;
 	
 	public GameFrame() {
 		super("Tic Tac Grace Poe");
@@ -26,6 +27,14 @@ public class GameFrame extends JFrame {
 		c = this.getContentPane();
 		c.setLayout(new GridLayout(ROWS,COLS));
 		
+		setGrid();
+				
+		this.pack();
+		this.setVisible(true);
+	}
+	
+	public static void setGrid() {
+		//c.removeAll();
 		for(int i = 0; i<ROWS; i++) {
 			for(int j = 0; j<COLS; j++) {
 				Button lob = new Button(j,i);
@@ -35,13 +44,10 @@ public class GameFrame extends JFrame {
 		
 		for(int i = 0; i<ROWS; i++) {
 			for(int j = 0; j<COLS; j++) {
-				status[i][j] = count;
-				count++;
+				status[i][j] = 99;
 			}
 		}
-		
-		this.pack();
-		this.setVisible(true);
+
 	}
 	
 	public static void print() {

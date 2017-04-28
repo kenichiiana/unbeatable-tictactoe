@@ -16,13 +16,12 @@ public class Button extends JButton implements ActionListener {
 	
 	public void checkIfWin() {
 		int[][] status = GameFrame.getStatus();
-		int hor_sum = 0;
-		int ver_sum = 0;
-		int left_dia_sum = 0;
-		int right_dia_sum = 0;
-		int max = 2;
 		for(int i=0; i<3; i++) {
-			
+			int hor_sum = 0;
+			int ver_sum = 0;
+			int left_dia_sum = 0;
+			int right_dia_sum = 0;
+			int max = 2;	
 			// checks horizontal/vertical
 			for(int j=0; j<3; j++) {
 				hor_sum += status[i][j];
@@ -30,21 +29,32 @@ public class Button extends JButton implements ActionListener {
 			}
 
 			// checks diagonal
-			for(i=0; i<3; i++) {
-				left_dia_sum += status[i][i];
+			for(int k=0; k<3; k++) {
+				left_dia_sum += status[k][k];
 			}
-			for(i=0; i<3; i++) {
-				right_dia_sum += status[i][max];
+			for(int k=0; k<3; k++) {
+				right_dia_sum += status[k][max];
 				max--;
 			}
+
+			System.out.println(hor_sum);
 
 			// checks win case
 			if(hor_sum == 3 || ver_sum == 3 || left_dia_sum == 3 || right_dia_sum == 3) {
 				System.out.println("Player O won!");
+				JOptionPane.showMessageDialog(null, "Player O won!");
+				//GameFrame.setGrid();
+				GameFrame.c.removeAll();
+				break;
 			} else if (hor_sum == -3 || ver_sum == -3 || left_dia_sum == -3 || right_dia_sum == -3) {
 				System.out.println("Player X won!");
+				JOptionPane.showMessageDialog(null, "Player X won!");
+				//GameFrame.setGrid();
+				break;
 			} else if (GameFrame.moves_left == 0) {
 				System.out.println("Draw!");
+				//GameFrame.setGrid();
+				break;
 			}
 
 			// checks if draw
